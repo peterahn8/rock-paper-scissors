@@ -3,11 +3,45 @@ let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
-const button = document.querySelectorAll("button");
+const rockButton = document.querySelector(".rockButton");
+const paperButton = document.querySelector(".paperButton");
+const scissorsButton = document.querySelector(".scissorsButton");
+const roundResult = document.querySelector("#roundResult");
+const scoreContainer = document.querySelector("#scoreContainer");
+const currentScore = document.querySelector("#currentScore");
 
-rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
-paperBtn.addEventListener("click", () => playRound("paper", getComputerChoice()));
-scissorsBtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+rockButton.addEventListener("click", () => {
+    const img = document.querySelector("img");
+    playerSelection = img.alt;
+
+    playRound(playerSelection, getComputerChoice());
+
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
+})
+
+paperButton.addEventListener("click", () => {
+    const img = document.querySelector("img");
+    playerSelection = img.alt;
+
+    playRound(playerSelection, getComputerChoice());
+
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
+})
+
+scissorsButton.addEventListener("click", () => {
+    const img = document.querySelector("img");
+    playerSelection = img.alt;
+
+    playRound(playerSelection, getComputerChoice());
+
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
+})
 
 function getComputerChoice() {
     const randomNum = Math.random();
@@ -21,84 +55,38 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
-        playerScore = playerScore++;
+    if (playerSelection === computerSelection) {
+        roundResult.textContent = `You both picked ${playerSelection}! This round is a tie.`;
+    } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+    ) {
+        playerScore = ++playerScore;
+        roundResult.textContent = `Your ${playerSelection} beat the computer's ${computerSelection}!`;
     } else {
-        computerScore = computerScore++;
+        computerScore = ++computerScore;
+        roundResult.textContent = `The computer's ${computerSelection} beat your ${playerSelection}. That's a shame.`
     }
+    currentScore.textContent = `${playerScore} - ${computerScore}`;
 }
 
-// function playRound(playerSelection, computerSelection) {
-//     playerSelection = playerSelection.toLowerCase();
-//     if (playerSelection === "rock") {
-//         if (computerSelection === "rock") {
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         } else if (computerSelection === "paper") {
-//             computerScore = ++computerScore;
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         } else {
-//             playerScore = ++playerScore;
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         }
-//     } else if (playerSelection === "paper") {
-//         if (computerSelection === "rock") {
-//             playerScore = ++playerScore;
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         } else if (computerSelection === "paper") {
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         } else {
-//             computerScore = ++computerScore;
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         }
-//     } else if (playerSelection === "scissors") {
-//         if (computerSelection === "rock") {
-//             computerScore = ++computerScore;
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         } else if (computerSelection === "paper") {
-//             playerScore = ++playerScore;
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         } else {
-//             const resultHeader = document.createElement("h1");
-//             resultHeader.textContent = `You picked ${playerSelection} and the computer picked ${computerSelection}. The score is now ${playerScore} to ${computerScore}.`;
-//             resultDiv.appendChild(resultHeader);
-//         }
-//     }
-// }
+function endGame() {
+    if (playerScore === 5) {
+        roundResult.textContent = `YES! The final score was ${playerScore} - ${computerScore}.`;
+    } else {
+        roundResult.textContent = `NOOOOO! The final score was ${playerScore} - ${computerScore}.`;
+    }
+    playerScore = 0;
+    computerScore = 0;
+}
 
 // function game() {
-//     for (let counter = 0; counter < 5; counter++) {
-//         let playerSelection = prompt("Choose rock, paper or scissors: ", "");
-//         let computerSelection = getComputerChoice();
-//         if (counter < 4) {
-//             alert(`${playRound(playerSelection, computerSelection)} The score is ${playerScore} - ${computerScore}.`);
-//         } else {
-//             if (playerScore > computerScore) {
-//                 alert(`The computer picked ${computerSelection}. You won the match! The final score was ${playerScore} - ${computerScore}.`);
-//             } else if (playerScore < computerScore) {
-//                 alert(`The computer picked ${computerSelection}. You lost the match! The final score was ${playerScore} - ${computerScore}.`);
-//             } else {
-//                 alert(`The computer picked ${computerSelection}. It was a tie! The final score was ${playerScore} - ${computerScore}.`)
-//             }
-//         }
+//     for (let gamesPlayed = 0; gamesPlayed < 5; gamesPlayed++) {
+
 //     }
 //     playerScore = 0;
 //     computerScore = 0;
+//     gamesplayed = 0;
 // }
 

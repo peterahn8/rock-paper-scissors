@@ -9,24 +9,43 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="mainContainer">
-        <div id="pageHeader">
-            <h1>ROCK PAPER SCISSORS!</h1>
-        </div>
-        <div id="buttonsContainer">
-            <button id="rockBtn">Rock</button>
-            <button id="paperBtn">Paper</button>
-            <button id="scissorsBtn">Scissors</button>
-        </div>
-        <div id="resultContainer">
-            <p id="roundResult"></p>
-        </div>
-        <div id="pageFooter">
-            <ul>
-                <li>Peter Ahn</li>
-                <li>Github</li>
-            </ul>
-        </div>
+
+    <div id="headerContainer">
+        <h1>ROCK PAPER SCISSORS!</h1>
     </div>
+
+    <div id="battleContainer">
+
+        <div id="playerContainer" class="actionMenu">
+            <h2 class="name">Player</h2>
+            <button class="rockButton"><img class="btnImg" src=images/rock.svg alt="rock"></button>
+            <button class="paperButton"><img class="btnImg" src=images/paper.svg alt="paper"></button>
+            <button class="scissorsButton"><img class="btnImg" src=images/scissors.svg alt="scissors"></button>
+        </div>
+
+        <div id="scoreContainer">
+            <p id="currentScore">0 - 0</p>
+        </div>
+
+        <div id="computerContainer" class="actionMenu">
+            <h2 class="name">Computer</h2>
+            <button class="rockButton"><img class="btnImg" src=images/rock.svg alt="rock"></button>
+            <button class="paperButton"><img class="btnImg" src=images/paper.svg alt="paper"></button>
+            <button class="scissorsButton"><img class="btnImg" src=images/scissors.svg alt="scissors"></button>
+        </div>
+        
+    </div>
+
+    <div id="resultContainer">
+        <p id="roundResult"></p>
+    </div>
+
+    <div id="footerContainer">
+        <ul>
+            <li>Peter Ahn</li>
+            <li><a href="https://github.com/peterahn8/odin-recipes">GitHub</a></li>
+        </ul>
+    </div>
+
 </body>
 </html>
