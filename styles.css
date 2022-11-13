@@ -5,12 +5,14 @@ body {
     margin: 0;
     padding: 0;
     background: gray;
-    font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
+body * {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 #headerContainer {
-    font-weight: bolder;
     font-size: 30px;
 }
 
@@ -18,13 +20,11 @@ body {
     display: flex;
     flex-direction: row;
 }
-
 #scoreContainer {
     font-size: 50px;
     font-weight: bolder;
     margin: auto;
 }
-
 .name {
     font-size: 30px;
 }
@@ -46,11 +46,10 @@ body {
     width: 75px;
     height: 75px;
 }
-.rockButton > .btnImg {
+img[alt~="Rock"] {
     width: 95px;
     height: 95px;
 }
-
 #currentScore {
     font-size: 80px;
 }
@@ -58,6 +57,45 @@ body {
 #resultContainer {
     margin: auto;
     font-size: 30px;
+}
+
+#resetButton {
+    border: 5px solid black;
+    border-radius: 10px;
+    font-size: 28px;
+}
+#playerContainer button,
+#resetButton {
+    cursor: pointer;
+}
+#playerContainer button:hover,
+#resetButton:hover {
+    background-color: #d3d3d3;
+}
+#playerContainer button:active,
+#resetButton:active {
+    background-color: #bdbdbd;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+.unclickable {
+    cursor: none;
+    pointer-events: none;
+}
+#computerContainer {
+    cursor: none;
+    pointer-events: none;
+}
+
+.winHighlight {
+    border: 10px solid green !important;
+}
+.loseHighlight {
+    border: 10px solid red !important;
+}
+.tieHighlight {
+    border: 10px solid yellow !important;
 }
 
 #footerContainer {

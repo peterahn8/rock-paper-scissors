@@ -9,35 +9,31 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-
+    
     <div id="headerContainer">
         <h1>ROCK PAPER SCISSORS!</h1>
     </div>
 
     <div id="battleContainer">
-
         <div id="playerContainer" class="actionMenu">
             <h2 class="name">Player</h2>
-            <button class="rockButton"><img class="btnImg" src=images/rock.svg alt="rock"></button>
-            <button class="paperButton"><img class="btnImg" src=images/paper.svg alt="paper"></button>
-            <button class="scissorsButton"><img class="btnImg" src=images/scissors.svg alt="scissors"></button>
+            <button id="playerRockButton" class="buttonClass"><img class="btnImg" src=images/rock.svg alt="Rock"></button>
+            <button id="playerPaperButton" class="buttonClass"><img class="btnImg" src=images/paper.svg alt="Paper"></button>
+            <button id="playerScissorsButton" class="buttonClass"><img class="btnImg" src=images/scissors.svg alt="Scissors"></button>
         </div>
-
-        <div id="scoreContainer">
-            <p id="currentScore">0 - 0</p>
-        </div>
-
+            <div id="scoreContainer">
+                <p id="currentScore">0 - 0</p>
+            </div>
         <div id="computerContainer" class="actionMenu">
             <h2 class="name">Computer</h2>
-            <button class="rockButton"><img class="btnImg" src=images/rock.svg alt="rock"></button>
-            <button class="paperButton"><img class="btnImg" src=images/paper.svg alt="paper"></button>
-            <button class="scissorsButton"><img class="btnImg" src=images/scissors.svg alt="scissors"></button>
+            <button id="computerRockButton" class="buttonClass"><img class="btnImg" src=images/rock.svg alt="Rock"></button>
+            <button id="computerPaperButton" class="buttonClass"><img class="btnImg" src=images/paper.svg alt="Paper"></button>
+            <button id="computerScissorsButton" class="buttonClass"><img class="btnImg" src=images/scissors.svg alt="Scissors"></button>
         </div>
-        
     </div>
 
     <div id="resultContainer">
-        <p id="roundResult"></p>
+        <p id="roundResult">FIRST TO FIVE WINS!</p>
     </div>
 
     <div id="footerContainer">
