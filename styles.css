@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    background: tan;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#pageFooter * {
+    list-style-type: none;
+}
