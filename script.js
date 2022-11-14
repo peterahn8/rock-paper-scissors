@@ -18,6 +18,27 @@ const scoreContainer = document.querySelector("#scoreContainer");
 const currentScore = document.querySelector("#currentScore");
 const playerContainer = document.querySelector("#playerContainer");
 const computerContainer = document.querySelector("#computerContainer");
+const rockSound = document.querySelector("#playerRockButton").addEventListener("click", playRockSound);
+const paperSound = document.querySelector("#playerPaperButton").addEventListener("click", playPaperSound);
+const scissorsSound = document.querySelector("#playerScissorsButton").addEventListener("click", playScissorsSound);
+
+function playRockSound() {
+    const buttonPress = document.querySelector("#rockSound");
+    buttonPress.play();
+    buttonPress.currentTime=0;
+}
+
+function playPaperSound() {
+    const buttonPress = document.querySelector("#paperSound");
+    buttonPress.play();
+    buttonPress.currentTime=0;
+}
+
+function playScissorsSound() {
+    const buttonPress = document.querySelector("#scissorsSound");
+    buttonPress.play();
+    buttonPress.currentTime=0;
+}
 
 buttons.forEach((buttonClass) => {
     buttonClass.addEventListener("click", () => {
